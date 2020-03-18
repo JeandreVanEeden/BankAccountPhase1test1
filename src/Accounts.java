@@ -1,63 +1,48 @@
-public class Accounts {
+abstract class Account {
     private double balance = 0;
+    private Boolean accountType;
     private double interest = 0.02;
     private int accountnumber;
-    private static int numberofaccounts = 1000000;
-
-    Accounts() {
+    private static int numberofaccounts = 1;
+    Account() {
         accountnumber = numberofaccounts++;
     }
-
-    public double getBalance() {
+    double getBalance() {
         return balance;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
-    public double getInterest() {
+    double getInterest() {
         return interest*100;
     }
-
-    public void setInterest(double interest) {
-        this.interest = interest;
-    }
-
-    public int getAccountnumber() {
+    int getAccountnumber() {
         return accountnumber;
     }
-
-    public void withdraw (double amount) {
+        public void withdraw(double amount) {
         if(amount + 0.5 > balance) {
             System.out.println("Insufficient funds.");
             return;
         }
-        balance -= amount + 0.5;
+         balance -= amount + 0.5;
         System.out.println("You withdrew R" + amount + "and got charged a fee R0.5");
         System.out.println("Your new balance is: R" + balance);
     }
-
-    public void deposit (double amount) {
+     public void deposit(double amount) {
         if (amount <= 0 ) {
             System.out.println("You kinda need to deposit a positive amount :) ");
             return;
         }
-        checkinterest();
-        amount = amount + amount * interest;
+        //Deposits the amount input from keyboard.nextint()
         balance += amount;
-        System.out.println("You deposited R" + amount + " with an interest rate of " + (interest*100) + "%");
+        System.out.println("You deposited R" + amount );
         System.out.println("Your new balance is: R" + balance);
-
     }
-
-    public void checkinterest() {
+     public double checkinterest() {
         if(balance > 10000) {
-            interest = 0.05;
+            interest = 0.07;
         } else {
-
-        } interest = 0.02;
-
+            interest = 0.05;
+        } return interest;
     }
-
 }

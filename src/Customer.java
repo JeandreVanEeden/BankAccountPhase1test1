@@ -1,35 +1,29 @@
+
 public class Customer {
-
-
-    private final String firstname;
-    private final String lastname;
-    private final String idnumber;
-    private final Accounts account;
-
-
-
-    public Customer(String firstname, String lastname, String idnumber, Accounts account ) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.idnumber = idnumber;
+    private final String firstName;
+    private final String lastName;
+    private final int idNumber;
+    private final Account account;
+    Customer(String firstname, String lastname, int idnumber, Account account) {
+        this.firstName = firstname;
+        this.lastName = lastname;
+        this.idNumber = idnumber;
         this.account = account;
     }
     @Override
     public String toString() {
-        return "\nCustomer Information\n" +
-                "First Name:" + firstname + "\n" +
-                "Last Name:" + lastname + "\n" +
-                "ID number: " + idnumber + "\n" +
+        return String.format("Customer Information\n" +
+                "First Name:" + firstName + "\n" +
+                "Last Name:" + lastName + "\n" +
+                "ID number: " + idNumber + "\n" +
+                account);
+    }
+    public String ListAccounts() {
+        return "Name: " + firstName + " " + lastName + "\n" +
                 account;
+
     }
-    public String Information() {
-        return  "\n" +
-                "First Name:" + firstname  +"\n" +
-                "Last Name:" + lastname  +"\n" +
-                "ID number: " + idnumber + "\n" +
-                "Account: " +account + "\n";
-    }
-    Accounts getAccount() {
+    Account getAccount() {
         return account;
     }
 
